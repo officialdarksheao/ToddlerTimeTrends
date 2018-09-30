@@ -11,6 +11,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+        // Permission table always needs to exist with basic setup of values
+        $this->call(PermissionStringRoleTableSeeder::class);
     }
 }
