@@ -37,6 +37,7 @@ This project makes use of the following tools:
         * Laravel 5 Snippets
         * Markdown All in One
         * PHP IntelliSense
+        * DotENV
 
 > **Disclaimer:** My host machine is windows. I know, I know. So the commands I am posting are tailored to windows users for the most part.
 
@@ -59,3 +60,44 @@ This project makes use of the following tools:
     3. Verify your IP to url is on its own line by checking the content of the hosts file.
         * `Get-Content C:\Windows\System32\drivers\etc\hosts`
 8. If you had any browsers open, it would now be a good time to close and reopen them.
+9. Turn your vagrant box on
+   * `vagrant up`
+10. Wait for it to finish... The initial vagrant up is usually the longest step in this whole setup.
+   * Note that you may have UAC popups when vagrant is binding to ports. This is normal.
+11. Connect to your shiny new vagrant virtual server
+   * `vagrant ssh`
+12. Run your migrations to build and populate the database.
+   * If you want a clean database with no testing data, or if you just want to reset your database to a clean state:
+      * `php artisan migrate:fresh`
+   * If you would like testing data to be prepopulated into your database, add on the seed command:
+      * `php artisan migrate:fresh --seed`
+   * If the project has anything that changes a part of the database schema, run the migrations to update it.
+      * `php artisan migrate`
+      * This will only run updates that your local database does not already have, so make a habit of doing this often. **Running it when there are no updates needed will not hurt anything!**
+   * If you have a clean database and want to pupulate it with testing data, you can run the seeding by itself.
+      * `php artisan db:seed`
+13. Verify that your server is accessabile by your browser
+   * Try navagating to http://trends.test
+   
+
+### Clean Shutdown Procedure
+When you are finished with development or are ready to restart your computer, first turn off your vagrant box.
+From your Powershell (not in the vagrant ssh) 
+```vagrant halt```
+The next time you do a vagrant up to turn the server on, it will be *Significantly* faster.
+
+### foobar help
+You should always be experimenting and breaking things in your local server, that's what it is there for.
+If you manage to get things into a state where you can't get anything working again, that's ok. Just destroy and follow the setup steps 9 through 13!
+```vagrant destroy```
+
+> Think of vagrant servers as safe places you can expiriment and not worry about messing things up, that is what they are there for. Make mistakes! Learn! Blow things up! (digitally)
+
+## Helpful Commands
+I'll leave helpfull snippets and commands here for easy referance for anyone still learning their way around Laravel.
+### Working with Models
+Create a new Model with a migration file to match: `php artisan make:model ModelNameInCamelCase --migration`
+### Working with Controllers
+Create a new Controller: `php artisan make:controller ControllerNameInCamelCase`
+### Last Resorts (Not)
+Check the Docs: https://laravel.com/docs/5.7/
