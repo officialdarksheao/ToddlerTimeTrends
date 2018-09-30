@@ -18,7 +18,6 @@ class CreatePermissionStringRoleTable extends Migration
             $table->integer('permission_string_id')->comment('binding to permission string');
             $table->integer('role_id')->comment('binding to role');
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
