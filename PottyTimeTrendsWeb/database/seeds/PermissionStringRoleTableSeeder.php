@@ -18,14 +18,17 @@ class PermissionStringRoleTableSeeder extends Seeder
         $admin_permission->save();
         $view_permission = new PermissionString(['value' => 'view']);
         $view_permission->save();
-        $restore_permission = new Role(['name' => 'Recovery']);
-        $restore_permission->save();
+        $restore_kiddo_permission = new PermissionString(['value' => 'restore_kiddo']);
+        $restore_kiddo_permission->save();
+        $restore_user_permission = new PermissionString(['value' => 'restore_user']);
+        $restore_user_permission->save();
 
         // Administration permission
         $role = new Role(['name' => 'Admin']);
         $role->permission_strings()->attach($admin_permission);
         $role->permission_strings()->attach($view_permission);
-        $role->permission_strings()->attach($restore_permission);
+        $role->permission_strings()->attach($restore_kiddo_permission);
+        $role->permission_strings()->attach($restore_user_permission);
         $role->save();
 
         // Normal viewing permission, revoke to block user account
@@ -34,9 +37,9 @@ class PermissionStringRoleTableSeeder extends Seeder
         $role->save();
 
         // Permission to restore soft deleted data
-        $permission = new PermissionString(['value' => 'restore']);
+        $role = new Role(['name' => 'Recovery']);
         $role->permission_strings()->attach($view_permission);
-        $role->permission_strings()->attach($restore_permission);
+        $role->permission_strings()->attach($restore_kiddo_permission);
         $permission->save();
     }
 }
