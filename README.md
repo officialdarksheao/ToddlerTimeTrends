@@ -55,7 +55,7 @@ This project makes use of the following tools:
 7. Knowing that IP address, we need to add it to our computers host file so our browser can see it. In my example I am leaving the default IP of 192.168.10.10.
     1. Open an administrator PowerShell (or `sudo bash` if you are using bash)
     2. Append your Homestead IP and the url trends.test to the hosts file.
-        * `Add-Content C:\Windows\System32\drivers\etc\hosts "``n192.168.10.10 trends.test``n"`
+        * `Add-Content C:\Windows\System32\drivers\etc\hosts "```n192.168.10.10 trends.test```n"`
     3. Verify your IP to url is on its own line by checking the content of the hosts file.
         * `Get-Content C:\Windows\System32\drivers\etc\hosts`
 8. If you had any browsers open, it would now be a good time to close and reopen them.
