@@ -22,4 +22,44 @@ class Kiddo extends Model
     {
         $this->belongsTo('App\User');
     }
+
+    public function kiddo_overwrites()
+    {
+        return $this->hasMany('App\KiddoOverwrite');
+    }
+
+    public function promotions()
+    {
+        return $this->hasMany('App\Promotion');
+    }
+
+    public function gos()
+    {
+        return $this->hasMany('App\Go');
+    }
+
+    public function naps()
+    {
+        return $this->hasMany('App\Nap');
+    }
+
+    public function meals()
+    {
+        return $this->hasMany('App\Meal');
+    }
+
+    public function routines()
+    {
+        return $this->hasMany('App\Routine');
+    }
+
+    public function prescriptions()
+    {
+        return $this->hasMany('App\Prescription');
+    }
+
+    public function doses()
+    {
+        return $this->hasMany('App\Dose');
+    }
 }

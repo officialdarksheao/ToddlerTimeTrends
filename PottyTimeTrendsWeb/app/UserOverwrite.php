@@ -3,9 +3,20 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
 class UserOverwrite extends Model
 {
-    use SoftDeletes;
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'item_type', 'value',
+    ];
+
+    public function user()
+    {
+        $this->belongsTo('App\User');
+    }
 }
