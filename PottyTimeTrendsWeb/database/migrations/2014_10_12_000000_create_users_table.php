@@ -19,7 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->rememberToken();
+            $table->string('first_name')->comment('First Name of the Parent. Nuf said.');
+            $table->string('last_name')->comment('Last Name of the Parent. Nuf said.');
+            $table->integer('theme_id')->comment('Identifier to be used for setting the desired theme for this user');
+            $table->integer('icon_id')->comment('Identifier to specify what icon and graphic pack this user wants');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
