@@ -17,7 +17,7 @@ class CreateDosesTable extends Migration
             $table->increments('id');
             $table->integer('kiddo_id')->comment('Binding to Kiddo.');
             $table->integer('medication_id')->comment('Binding to medication. If medication is part of a prescription, then doses will be used to determine if daily needs are met.');
-            $table->timestamp('timestamp')->comment('The timestamp of when the dose of medication was given.');
+            $table->timestamp('timestamp')->nullable()->comment('The timestamp of when the dose of medication was given.');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -16,8 +16,8 @@ class CreateNapsTable extends Migration
         Schema::create('naps', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('kiddo_id')->comment('Binding to Kiddo.');
-            $table->timestamp('start')->comment('When the nap started.');
-            $table->timestamp('end')->comment('When the nap ended.');
+            $table->timestamp('start')->nullable()->comment('When the nap started.');
+            $table->timestamp('end')->nullable()->comment('When the nap ended.');
             $table->text('notes')->comments('Any extra notes or comments on the nap, situations or events.');
             $table->timestamps();
             $table->softDeletes();
