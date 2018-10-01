@@ -21,11 +21,28 @@ class User extends Authenticatable
     ];
 
     /**
-     * The attributes that should be hidden for arrays.
+     * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function kiddos()
+    {
+        // makes assumption Kiddos table has user_id
+        return $this->hasMany('App\Kiddo');
+    }
+
+    public function roles()
+    {
+        return $this->belongsToMany('App\Role')->withTimestamps();
+    }
+
+    public function user_overwrites()
+    {
+        return $this->hasMany('App\UserOverwrite');
+    }
+
 }
