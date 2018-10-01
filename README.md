@@ -1,13 +1,13 @@
-# PottyTimeTrends
-Web Application for tracking and analysis of potty training for toddlers
+# ToddlerTimeTrends
+Web Application for tracking and analysis of scheduling, meals, medicine, and potty training for toddlers
 
 ## Checking out locally
 ```
-git clone git@github.com:officialdarksheao/PottyTimeTrends.git
+git clone git@github.com:officialdarksheao/ToddlerTimeTrends.git
 ```
 My Local Alias to keep keys separate by project:
 ```
-git clone git@officialdarksheao_github:officialdarksheao/PottyTimeTrends.git
+git clone git@officialdarksheao_github:officialdarksheao/ToddlerTimeTrends.git
 ```
 
 ## Prerequisites
@@ -44,7 +44,7 @@ This project makes use of the following tools:
 
 ## Setting up for local development
 1. Clone the repository to a local directory. I recommend always doing git operations via ssh. 
-    * `git clone git@github.com:officialdarksheao/PottyTimeTrends.git`
+    * `git clone git@github.com:officialdarksheao/ToddlerTimeTrends.git`
 2. In your shell of choice (Powershell or Bash) navigate to that folder and then to the folder of the project you want to work on. For work on the Web Application, that folder would be PottyTimeTrendsWeb.
 3. Download any required dependencies using composer. 
     * `composer install`
