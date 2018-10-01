@@ -19,8 +19,8 @@ class CreatePrescriptionsTable extends Migration
             $table->integer('medication_id')->comment('Binding to medication data.');
             $table->float('interval_unit', 8, 1)->comment('How many units before this medication can be taken again, eg. Ibuprofen would have unit of "6" and type of "hours". Will overwrite interval if one set in medication settings.');
             $table->integer('interval_type')->comment('Integer matching up to a constants file of types of interval, hours, days, etc. Will overwrite interval if one set in medication settings.');
-            $table->timestamp('start')->comment('When the prescription needs to start.');
-            $table->timestamp('end')->comment('When the prescription needs to end.');
+            $table->timestamp('start')->nullable()->comment('When the prescription needs to start.');
+            $table->timestamp('end')->nullable()->comment('When the prescription needs to end.');
             $table->boolean('is_prn')->comment('Flag for if the prescription is based on symptoms and not a routine of n amount per day.');
             $table->text('notes')->comments('Any extra instructions as needed.');
             $table->timestamps();

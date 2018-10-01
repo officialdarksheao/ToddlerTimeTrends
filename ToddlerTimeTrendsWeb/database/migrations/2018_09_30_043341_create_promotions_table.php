@@ -17,7 +17,7 @@ class CreatePromotionsTable extends Migration
             $table->increments('id');
             $table->integer('kiddo_id')->comment('Binding to Kiddo that got promoted/demoted a Level.');
             $table->integer('level_id')->comment('Binding to Level that Kiddo got promoted/demoted to.');
-            $table->timestamp('timestamp')->comment('Timestamp of when Kiddo was promoted/demoted.');
+            $table->timestamp('timestamp')->nullable()->comment('Timestamp of when Kiddo was promoted/demoted.');
             $table->timestamps();
             $table->softDeletes();
         });

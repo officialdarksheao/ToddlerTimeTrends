@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNapsTable extends Migration
+class CreateDosesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateNapsTable extends Migration
      */
     public function up()
     {
-        Schema::create('naps', function (Blueprint $table) {
+        Schema::create('doses', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('kiddo_id')->comment('Binding to Kiddo.');
-            $table->timestamp('start')->comment('When the nap started.');
-            $table->timestamp('end')->comment('When the nap ended.');
-            $table->text('notes')->comments('Any extra notes or comments on the nap, situations or events.');
+            $table->integer('medication_id')->comment('Binding to medication. If medication is part of a prescription, then doses will be used to determine if daily needs are met.');
+            $table->timestamp('timestamp')->nullable()->comment('The timestamp of when the dose of medication was given.');
             $table->timestamps();
             $table->softDeletes();
         });
@@ -31,6 +30,6 @@ class CreateNapsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('naps');
+        Schema::dropIfExists('doses');
     }
 }

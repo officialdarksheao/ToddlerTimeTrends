@@ -63,10 +63,11 @@ This project makes use of the following tools:
 9. Turn your vagrant box on
    * `vagrant up`
 10. Wait for it to finish... The initial vagrant up is usually the longest step in this whole setup.
-   * Note that you may have UAC popups when vagrant is binding to ports. This is normal.
+    * Note that you may have UAC popups when vagrant is binding to ports. This is normal.
+        * If you see that vagrant up is hanging up on and then timing out on the "Waiting for machine to boot" step, likely your local firewall is blocking it. You can allow it access but that is beyond the current scope of this readme. *Google it*
 11. Connect to your shiny new vagrant virtual server
    * `vagrant ssh`
-12. Run your migrations to build and populate the database.
+12. **This will happen automatically now but you can follow this to force it reset** Run your migrations to build and populate the database.
    * If you want a clean database with no testing data, or if you just want to reset your database to a clean state:
       * `php artisan migrate:fresh`
    * If you would like testing data to be prepopulated into your database, add on the seed command:

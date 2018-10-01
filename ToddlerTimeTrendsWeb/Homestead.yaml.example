@@ -7,7 +7,7 @@ keys:
     - ~/.ssh/id_rsa
 folders:
     -
-        map: 'C:\Dev\officialdarksheao\projects\PottyTimeTrends\PottyTimeTrendsWeb'
+        map: 'C:\Dev\officialdarksheao\projects\ToddlerTimeTrends\ToddlerTimeTrendsWeb'
         to: /home/vagrant/code
 sites:
     -
@@ -16,5 +16,5 @@ sites:
 databases:
     - homestead
     - trends
-name: pottytimetrendsweb
-hostname: pottytimetrendsweb
+name: toddlertimetrendsweb
+hostname: todlertimetrendsweb
