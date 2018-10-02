@@ -67,3 +67,6 @@ Route::get('/dashboard', function () {
     $navbar = new Navbar();
     return view('subscriber.dashboard', ['navbar' => $navbar]);
 })->name('subscriber.dashboard');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
