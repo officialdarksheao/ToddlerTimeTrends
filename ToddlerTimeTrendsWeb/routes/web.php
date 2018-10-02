@@ -15,13 +15,8 @@ use Illuminate\Http\Request;
 
 Route::get('/', function()
 {
-    return redirect()->route('public.home');
+    return redirect()->route('home');
 })->name('root');
-
-Route::get('/home', function () {
-    $navbar = new Navbar('home');
-    return view('public.splash', ['navbar' => $navbar]);
-})->name('public.home');
 
 Route::get('/features', function () {
     $navbar = new Navbar('features');
@@ -40,7 +35,7 @@ Route::get('/about', function () {
 
 Route::get('/signup', function () {
     $navbar = new Navbar('signup');
-    return view('public.signup.account', ['navbar' => $navbar]);
+    return view('auth.register', ['navbar' => $navbar]);
 })->name('public.signup');
 
 Route::get('/login', function () {
